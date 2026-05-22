@@ -244,7 +244,90 @@ input, textarea, select { font-family: inherit; }
 ::-webkit-scrollbar-thumb { background: rgba(10,79,60,0.25); border-radius: 3px; }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Container utility */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Fix common horizontal scroll causes */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Remove horizontal scroll from sections */
+section, div {
+  max-width: 100%;
+}
+
+/* Mobile improvements */
 @media (max-width: 768px) {
-  .container { padding: 0 1.25rem; }
-  .hide-mobile { display: none !important; }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+/* Mobile Square Cards Only */
+@media (max-width: 767px) {
+  .mobile-square-card {
+    aspect-ratio: 1 / 1;
+    min-height: 150px;
+  }
+  
+}
+
+/* Larger screens remain normal height */
+@media (min-width: 768px) {
+  .mobile-square-card {
+    aspect-ratio: auto;
+  }
+}
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Tighter gap for mobile */
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
 }

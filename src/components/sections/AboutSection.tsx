@@ -4,10 +4,12 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 export function AboutSection() {
   return (
     <section id="about" style={{ padding: "6rem 2rem", background: "#fff" }}>
-      <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+      {/* Changed style to the about-grid class */}
+      <div className="container about-grid">
 
         {/* Visual side */}
         <AnimateIn direction="left">
+          {/* ... Keep everything inside exactly the same ... */}
           <div style={{ position: "relative", paddingBottom: 30, paddingRight: 30 }}>
             {/* Main card */}
             <div style={{ background: "var(--primary)", borderRadius: "var(--radius-lg)", padding: "3rem 2.5rem" }}>

@@ -100,8 +100,8 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(o => !o)}
-            style={{ display: "none", background: "none", border: "none", color: "#fff", fontSize: 24, cursor: "pointer", padding: 4 }}
-            className="show-mobile"
+            style={{ background: "none", border: "none", color: "#fff", fontSize: 24, cursor: "pointer", padding: 4 }}
+            className="show-mobile" /* Let classes handle display none/block */
             aria-label="Toggle menu"
           >
             {mobileOpen ? "×" : "☰"}
