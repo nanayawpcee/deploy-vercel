@@ -331,3 +331,37 @@ section, div {
     gap: 5rem;
   }
 }
+/* === DISABLE HORIZONTAL SCROLLING GLOBALLY === */
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Prevent layout shift from scrollbars */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Make sure containers don't cause overflow */
+.container,
+section,
+main,
+div {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Fix common culprits */
+img,
+video,
+iframe {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Fix for carousels, flex, grid that often break */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { STATS } from "@/lib/data";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 function useCountUp(target: string, active: boolean) {
   const [display, setDisplay] = useState("0");
@@ -46,8 +47,18 @@ function StatItem({ value, label, delay }: { value: string; label: string; delay
 }
 
 export function StatsBar() {
+  const isMobile = useIsMobile();
   return (
-    <div style={{ background: "#E8B84B", padding: "2.75rem 2rem" }}>
+
+    <div 
+      style={{ 
+        background: "#E8B84B",
+        color: "#fff",
+        padding: isMobile ? "1.75rem 1rem" : "2.5rem 2rem",
+        width: "100%",
+        overflow: "hidden",
+      }}
+    >
       <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem" }}>
         {STATS.map((s, i) => (
           <StatItem key={s.label} value={s.value} label={s.label} delay={i * 90} />
