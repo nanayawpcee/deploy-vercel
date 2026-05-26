@@ -4,6 +4,7 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { EmergencyBanner } from "@/components/sections/EmergencyBanner";
 import { TeamGrid } from "@/components/ui/TeamGrid";
 import { TEAM, STATS } from "@/lib/data";
+import { StatsBar } from "@/components/sections/StatsBar";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -73,18 +74,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <div style={{ background: "var(--primary)", padding: "3rem 2rem" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem" }}>
-          {STATS.map((s, i) => (
-            <AnimateIn key={s.label} delay={i * 80}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, color: "var(--accent)", fontFamily: "var(--font-serif)", lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.65)", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginTop: 7 }}>{s.label}</div>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
-      </div>
+      <StatsBar />
 
       {/* Timeline */}
       <section style={{ padding: "5.5rem 2rem", background: "var(--off-white)" }}>
