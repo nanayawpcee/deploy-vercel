@@ -166,9 +166,9 @@ export function AppointmentModal({ onClose, prefillDept }: Props) {
           {step === "personal" && (
             <div style={{ animation: "slideUp 0.3s ease" }}>
               <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "1.25rem", color: "var(--text-dark)" }}>Your Personal Information</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem" }}>
-                <div className="form-group">
-                  <label className="form-label">First Name *</label>
+             <div className="form-grid-2col">
+  <div className="form-group">
+    <label className="form-label">First Name *</label>
                   <input className="form-input" placeholder="e.g. Kwame" value={data.firstName} onChange={e => set("firstName", e.target.value)} />
                   {errors.firstName && <p className="form-error">{errors.firstName}</p>}
                 </div>
@@ -178,9 +178,9 @@ export function AppointmentModal({ onClose, prefillDept }: Props) {
                   {errors.lastName && <p className="form-error">{errors.lastName}</p>}
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem" }}>
-                <div className="form-group">
-                  <label className="form-label">Date of Birth</label>
+              <div className="form-grid-2col">
+  <div className="form-group">
+    <label className="form-label">Date of Birth</label>
                   <input className="form-input" type="date" value={data.dob} onChange={e => set("dob", e.target.value)} />
                 </div>
                 <div className="form-group">
@@ -220,7 +220,7 @@ export function AppointmentModal({ onClose, prefillDept }: Props) {
                   <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "var(--text-mid)" }}>I have health insurance</span>
                 </label>
                 {data.hasInsurance && (
-                  <div style={{ marginTop: "0.85rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem", animation: "slideUp 0.25s ease" }}>
+                  <div className="form-grid-2col" style={{ marginTop: "0.85rem", animation: "slideUp 0.25s ease" }}>
                     <div className="form-group" style={{ marginBottom: 0 }}>
                       <label className="form-label">Insurance Provider</label>
                       <input className="form-input" placeholder="e.g. NHIS" value={data.insuranceName} onChange={e => set("insuranceName", e.target.value)} />
@@ -271,9 +271,9 @@ export function AppointmentModal({ onClose, prefillDept }: Props) {
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem" }}>
-                <div className="form-group">
-                  <label className="form-label">Preferred Date *</label>
+            <div className="form-grid-2col">
+  <div className="form-group">
+    <label className="form-label">Preferred Date *</label>
                   <input className="form-input" type="date" min={minDate} value={data.preferredDate} onChange={e => set("preferredDate", e.target.value)} />
                   {errors.preferredDate && <p className="form-error">{errors.preferredDate}</p>}
                 </div>

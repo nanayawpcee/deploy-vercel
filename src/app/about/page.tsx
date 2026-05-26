@@ -35,38 +35,40 @@ export default function AboutPage() {
         subtitle="Serving Ghana's Brong-Ahafo Region with faith, compassion, and clinical excellence for over five decades."
       />
 
-      {/* Mission & Vision */}
-      <section style={{ padding: "5.5rem 2rem", background: "#fff" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
-          <AnimateIn direction="left">
-            <div className="section-tag"><span>Our Purpose</span></div>
-            <h2 className="section-heading" style={{ marginBottom: "1.25rem" }}>Mission &amp; Vision</h2>
-            <div style={{ background: "var(--light-green)", borderRadius: "var(--radius-md)", padding: "1.5rem", marginBottom: "1.25rem", borderLeft: "4px solid var(--primary)" }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--primary-light)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Mission</div>
-              <p style={{ color: "var(--text-mid)", lineHeight: 1.75, margin: 0, fontSize: "0.95rem" }}>
-                To provide quality, compassionate, and holistic healthcare services to all persons, especially the poor and vulnerable, guided by Catholic values and the teachings of the Church.
-              </p>
-            </div>
-            <div style={{ background: "var(--off-white)", borderRadius: "var(--radius-md)", padding: "1.5rem", borderLeft: "4px solid var(--accent)" }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--primary-light)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Vision</div>
-              <p style={{ color: "var(--text-mid)", lineHeight: 1.75, margin: 0, fontSize: "0.95rem" }}>
-                To be the leading Catholic hospital in Ghana, recognised for excellence in patient care, community health, and the formation of compassionate health professionals.
-              </p>
-            </div>
-          </AnimateIn>
+    {/* Mission & Vision */}
+      <section style={{ padding: "5.5rem 0", background: "#fff" }}>
+        <div className="container">
+          <div className="about-mission-grid">
+            <AnimateIn direction="left">
+              <div className="section-tag"><span>Our Purpose</span></div>
+              <h2 className="section-heading" style={{ marginBottom: "1.25rem" }}>Mission &amp; Vision</h2>
+              <div style={{ background: "var(--light-green)", borderRadius: "var(--radius-md)", padding: "1.5rem", marginBottom: "1.25rem", borderLeft: "4px solid var(--primary)" }}>
+                <div style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--primary-light)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Mission</div>
+                <p style={{ color: "var(--text-mid)", lineHeight: 1.75, margin: 0, fontSize: "0.95rem" }}>
+                  To provide quality, compassionate, and holistic healthcare services to all persons, especially the poor and vulnerable, guided by Catholic values and the teachings of the Church.
+                </p>
+              </div>
+              <div style={{ background: "var(--off-white)", borderRadius: "var(--radius-md)", padding: "1.5rem", borderLeft: "4px solid var(--accent)" }}>
+                <div style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--primary-light)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Vision</div>
+                <p style={{ color: "var(--text-mid)", lineHeight: 1.75, margin: 0, fontSize: "0.95rem" }}>
+                  To be the leading Catholic hospital in Ghana, recognised for excellence in patient care, community health, and the formation of compassionate health professionals.
+                </p>
+              </div>
+            </AnimateIn>
 
-          <AnimateIn delay={140} direction="right">
-            <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.3rem", fontWeight: 800, color: "var(--text-dark)", margin: "0 0 1.5rem" }}>Our Core Values</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-              {VALUES.map(v => (
-                <div key={v.title} style={{ background: "#fff", border: "1.5px solid #E2EBE7", borderRadius: "var(--radius-md)", padding: "1.25rem" }}>
-                  <div style={{ fontSize: 28, marginBottom: 10 }}>{v.icon}</div>
-                  <div style={{ fontWeight: 700, color: "var(--text-dark)", fontSize: "0.95rem", marginBottom: 6 }}>{v.title}</div>
-                  <div style={{ color: "var(--text-light)", fontSize: "0.82rem", lineHeight: 1.65 }}>{v.desc}</div>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
+            <AnimateIn delay={140} direction="right">
+              <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.3rem", fontWeight: 800, color: "var(--text-dark)", margin: "0 0 1.5rem" }}>Our Core Values</h3>
+              <div className="about-values-grid">
+                {VALUES.map(v => (
+                  <div key={v.title} style={{ background: "#fff", border: "1.5px solid #E2EBE7", borderRadius: "var(--radius-md)", padding: "1.25rem" }}>
+                    <div style={{ fontSize: 28, marginBottom: 10 }}>{v.icon}</div>
+                    <div style={{ fontWeight: 700, color: "var(--text-dark)", fontSize: "0.95rem", marginBottom: 6 }}>{v.title}</div>
+                    <div style={{ color: "var(--text-light)", fontSize: "0.82rem", lineHeight: 1.65 }}>{v.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </AnimateIn>
+          </div>
         </div>
       </section>
 

@@ -22,12 +22,14 @@ const FOOTER_LINKS = {
 
 export function Footer() {
   return (
-    <footer style={{ background: "#040F0C", padding: "3.5rem 2rem 1.75rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <footer style={{ background: "#040F0C", padding: "3.5rem 0 1.75rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "3rem", marginBottom: "2.5rem" }}>
+
+        {/* FIX: grid columns handled via className + globals.css — avoids hydration mismatch */}
+        <div className="footer-grid" style={{ marginBottom: "2.5rem" }}>
           <div>
             <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, background: "#E8B84B", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17 }}>✝</div>
+              <div style={{ width: 36, height: 36, background: "#E8B84B", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, flexShrink: 0 }}>✝</div>
               <div style={{ color: "#fff", fontSize: "0.88rem", fontWeight: 800, fontFamily: "Georgia,serif", lineHeight: 1.25 }}>
                 ST. ELIZABETH<br />
                 <span style={{ color: "#E8B84B", fontSize: "0.6rem", letterSpacing: "0.18em", fontWeight: 600 }}>CATHOLIC HOSPITAL</span>
@@ -36,7 +38,7 @@ export function Footer() {
             <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.83rem", lineHeight: 1.75, maxWidth: 270, marginBottom: "1.25rem" }}>
               Providing quality, compassionate Catholic healthcare to the communities of Ghana's Ahafo Region since the 1970s.
             </p>
-            <div style={{ display: "flex", gap: 10 }}>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {["CHAG", "GHS", "MOH"].map(badge => (
                 <span key={badge} style={{ padding: "4px 10px", background: "rgba(232,184,75,0.12)", border: "1px solid rgba(232,184,75,0.25)", borderRadius: 3, color: "#E8B84B", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em" }}>{badge}</span>
               ))}
@@ -47,7 +49,8 @@ export function Footer() {
             <div key={title}>
               <div style={{ color: "#E8B84B", fontSize: "0.67rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, marginBottom: 14 }}>{title}</div>
               {links.map(link => (
-                <Link key={link.href} href={link.href} style={{ display: "block", color: "rgba(255,255,255,0.4)", fontSize: "0.84rem", marginBottom: 9, transition: "color 0.2s" }}
+                <Link key={link.href} href={link.href}
+                  style={{ display: "block", color: "rgba(255,255,255,0.4)", fontSize: "0.84rem", marginBottom: 9, transition: "color 0.2s" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
                   onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
                 >{link.label}</Link>
@@ -56,13 +59,14 @@ export function Footer() {
           ))}
         </div>
 
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "1.5rem", paddingBottom: "1rem", display: "flex", gap: 24, flexWrap: "wrap" as const }}>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "1.5rem", paddingBottom: "1rem", display: "flex", gap: 24, flexWrap: "wrap" }}>
           {[
             { icon: "📞", val: SITE.phone, href: `tel:${SITE.phone}` },
             { icon: "✉️", val: SITE.email, href: `mailto:${SITE.email}` },
             { icon: "📍", val: "Hwidiem, Ahafo Region, Ghana", href: "#" },
           ].map(item => (
-            <a key={item.val} href={item.href} style={{ display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.35)", fontSize: "0.78rem", transition: "color 0.2s" }}
+            <a key={item.val} href={item.href}
+              style={{ display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.35)", fontSize: "0.78rem", transition: "color 0.2s" }}
               onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
               onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
             >

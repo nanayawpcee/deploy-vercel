@@ -117,7 +117,9 @@ export function AppointmentPageForm() {
           <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.15rem", fontWeight: 700, margin: "0 0 1.4rem", color: "var(--text-dark)" }}>
             Personal Information
           </h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem" }}>
+          
+          {/* First & Last Name row */}
+          <div className="contact-name-grid">
             <div className="form-group">
               <label className="form-label">First Name *</label>
               <input className="form-input" placeholder="e.g. Kwame" value={data.firstName} onChange={e => set("firstName", e.target.value)} />
@@ -129,7 +131,9 @@ export function AppointmentPageForm() {
               {errors.lastName && <p className="form-error">{errors.lastName}</p>}
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem" }}>
+
+          {/* DOB & Gender row */}
+          <div className="contact-name-grid">
             <div className="form-group">
               <label className="form-label">Date of Birth</label>
               <input className="form-input" type="date" value={data.dob} onChange={e => set("dob", e.target.value)} />
@@ -145,6 +149,7 @@ export function AppointmentPageForm() {
               {errors.gender && <p className="form-error">{errors.gender}</p>}
             </div>
           </div>
+
           <div className="form-group">
             <label className="form-label">Phone Number *</label>
             <input className="form-input" placeholder="+233 XX XXX XXXX" value={data.phone} onChange={e => set("phone", e.target.value)} />
@@ -162,7 +167,8 @@ export function AppointmentPageForm() {
               <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "var(--text-mid)" }}>I have health insurance (NHIS or private)</span>
             </label>
             {data.hasInsurance && (
-              <div style={{ marginTop: "0.85rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem", animation: "slideUp 0.25s ease" }}>
+              /* Insurance grid wrapper */
+              <div className="contact-name-grid" style={{ marginTop: "0.85rem", animation: "slideUp 0.25s ease" }}>
                 <div className="form-group" style={{ marginBottom: 0 }}>
                   <label className="form-label">Insurance Provider</label>
                   <input className="form-input" placeholder="e.g. NHIS" value={data.insuranceName} onChange={e => set("insuranceName", e.target.value)} />
@@ -191,13 +197,14 @@ export function AppointmentPageForm() {
           </div>
           <div className="form-group">
             <label className="form-label">Appointment Type</label>
-            <div style={{ display: "flex", gap: 10 }}>
+            {/* Added flexWrap and dynamic flex bases so option boxes stack gracefully on mobile screens */}
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {[
                 { value: "consultation", label: "New Consultation", icon: "🩺" },
                 { value: "followup",     label: "Follow-Up",        icon: "🔄" },
                 { value: "test",         label: "Test / Lab",       icon: "🔬" },
               ].map(opt => (
-                <label key={opt.value} style={{ flex: 1, padding: "10px", border: `1.5px solid ${data.appointmentType === opt.value ? "var(--primary)" : "#D6E8DF"}`, borderRadius: "var(--radius-sm)", cursor: "pointer", textAlign: "center", background: data.appointmentType === opt.value ? "var(--light-green)" : "#fff", transition: "all 0.2s" }}>
+                <label key={opt.value} style={{ flex: "1 1 140px", padding: "10px", border: `1.5px solid ${data.appointmentType === opt.value ? "var(--primary)" : "#D6E8DF"}`, borderRadius: "var(--radius-sm)", cursor: "pointer", textAlign: "center", background: data.appointmentType === opt.value ? "var(--light-green)" : "#fff", transition: "all 0.2s" }}>
                   <input type="radio" name="apptType" value={opt.value} checked={data.appointmentType === opt.value} onChange={() => set("appointmentType", opt.value)} style={{ display: "none" }} />
                   <div style={{ fontSize: 20, marginBottom: 4 }}>{opt.icon}</div>
                   <div style={{ fontSize: "0.74rem", fontWeight: 700, color: data.appointmentType === opt.value ? "var(--primary)" : "var(--text-light)", letterSpacing: "0.04em" }}>{opt.label}</div>
@@ -205,7 +212,9 @@ export function AppointmentPageForm() {
               ))}
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 1rem" }}>
+          
+          {/* Preferred Date & Time row */}
+          <div className="contact-name-grid">
             <div className="form-group">
               <label className="form-label">Preferred Date *</label>
               <input className="form-input" type="date" min={minDate} value={data.preferredDate} onChange={e => set("preferredDate", e.target.value)} />
@@ -220,6 +229,7 @@ export function AppointmentPageForm() {
               {errors.preferredTime && <p className="form-error">{errors.preferredTime}</p>}
             </div>
           </div>
+          
           <div className="form-group">
             <label className="form-label">Additional Notes (optional)</label>
             <textarea className="form-input" rows={3} placeholder="Briefly describe your concern…" value={data.notes} onChange={e => set("notes", e.target.value)} style={{ resize: "vertical" }} />
