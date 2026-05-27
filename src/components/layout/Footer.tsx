@@ -17,6 +17,7 @@ const FOOTER_LINKS = {
     { label: "News",        href: "/news" },
     { label: "Contact",     href: "/contact" },
     { label: "Appointment", href: "/appointment" },
+    { label: "Organogram",   href: "/organogram" },
   ],
 };
 

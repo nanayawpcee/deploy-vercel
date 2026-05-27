@@ -351,7 +351,7 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* Make sure containers don't cause overflow */
+/* To prevent container overflow */
 .container,
 section,
 main,
@@ -454,5 +454,339 @@ iframe {
 @media (min-width: 640px) {
   .form-grid-2col {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   About Page Layout & General Sections
+   ========================================================================== */
+.about-mission-section {
+  padding: 5.5rem 0;
+  background: #fff;
+}
+
+.mission-box {
+  background: var(--light-green);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-left: 4px solid var(--primary);
+}
+
+.mission-box .label, .vision-box .label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.mission-box p, .vision-box p {
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.vision-box {
+  background: var(--off-white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent);
+}
+
+.core-values-heading {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 1.5rem;
+}
+
+.value-card {
+  background: #fff;
+  border: 1.5px solid #E2EBE7;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.value-card .icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.value-card .title {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.value-card .desc {
+  color: var(--text-light);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* Timeline Layout */
+.timeline-section {
+  padding: 7rem 2rem;
+  background: var(--off-white);
+  overflow: hidden;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #D6E8DF;
+  transform: translateX(-50%);
+}
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+.timeline-content-left {
+  text-align: right;
+  padding-right: 1.5rem;
+}
+
+.timeline-content-right {
+  padding-left: 1.5rem;
+}
+
+.timeline-year {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 10px 0 8px;
+}
+
+.timeline-desc {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+.timeline-image-wrapper {
+  position: relative;
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: 100%;
+}
+
+.timeline-node-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-node {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 4px var(--accent);
+}
+
+/* Responsive adjustment for older viewports */
+@media (max-width: 768px) {
+  .timeline-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .timeline-spine {
+    left: 20px;
+  }
+  .timeline-node-container {
+    grid-column: 1;
+    justify-content: flex-start;
+    left: 11px;
+  }
+  .timeline-content-left, .timeline-content-right {
+    grid-column: 1;
+    text-align: left !important;
+    padding-left: 45px !important;
+    padding-right: 0 !important;
+  }
+}
+/* ==========================================================================
+   Team Section - Hover-only Overlay with Icons
+   ========================================================================== */
+.team-section {
+  padding: 5.5rem 2rem;
+  background: #fff;
+}
+
+.team-custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 2.5rem;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.team-card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card-display {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  isolation: isolate;
+}
+
+.team-card-display img {
+  z-index: 1;
+}
+
+/* Overlay - Hidden by default, slides up on hover */
+.team-card-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20%;                   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 5;
+}
+
+.team-card-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #d4e771;
+  border-radius: 2rem 2rem 2rem 2rem;
+  z-index: 1;
+}
+
+.team-card-display:hover .team-card-overlay {
+  transform: translateY(0);       /* Slides up into view */
+}
+
+.team-card-display:hover .team-card-overlay::before {
+  border-radius: 2rem 2rem 2rem 2rem;
+}
+
+/* Icons & Text */
+.team-social-row {
+  display: flex;
+  gap: 0.9rem;
+  margin-bottom: 0.8rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease 0.1s;
+  z-index: 10;
+  position: relative;
+}
+
+.team-card-display:hover .team-social-row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-social-icon {
+  width: 46px;
+  height: 46px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+  z-index: 11;
+  position: relative;
+}
+
+.team-social-icon:hover {
+  transform: scale(1.15);
+  background: var(--primary);
+  color: white;
+}
+
+.team-follow-text {
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.15s;
+  z-index: 10;
+  position: relative;
+}
+
+.team-card-display:hover .team-follow-text {
+  opacity: 1;
+}
+
+/* Meta Info */
+.team-meta-info {
+  margin-top: 1.25rem;
+  padding-left: 0.25rem;
+}
+
+.team-member-name {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+
+.team-member-role {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+/* Hide sidebar layout adjustments for mobile screens */
+@media (max-width: 760px) {
+  .desktop-only-sidebar {
+    display: none !important;
+  }
+  
+  /* Prevent layout stretching issues on smaller grids */
+  .container {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 }

@@ -78,7 +78,7 @@ export function ServicesGrid({ preview = false }: Props) {
               <div
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
-                onClick={() => openModal?.(svc.title)}
+                onClick={(e) => e.stopPropagation()}
                 style={{
                   background: hovered === i ? "var(--primary)" : "#fff",
                   border: `1.5px solid ${hovered === i ? "var(--primary)" : "#E2EBE7"}`,
@@ -95,8 +95,10 @@ export function ServicesGrid({ preview = false }: Props) {
                   boxSizing: "border-box",
                 }}
               >
-                <div style={{ fontSize: isMobile ? 26 : 28, marginBottom: 14 }}>{svc.icon}</div>
-                
+                <div style={{ fontSize: isMobile ? 26 : 28, marginBottom: 14 }}>
+                  <img src={svc.icon} alt={svc.title} style={{ width: "20%", height: "auto" }} />
+                </div>
+
                 <h3 style={{ 
                   fontSize: isMobile ? "1.05rem" : "0.97rem", 
                   fontWeight: 700, 
@@ -138,7 +140,7 @@ export function ServicesGrid({ preview = false }: Props) {
                     onClick={(e) => e.stopPropagation()}
                     style={{ 
                       padding: "8px 16px", 
-                      color: hovered === i ? "#fff" : "var(--primary)", 
+                      color: hovered === i ? "var(--accent)" : "var(--primary)", 
                       textDecoration: "none",
                       fontSize: "0.8rem",
                       fontWeight: 600,

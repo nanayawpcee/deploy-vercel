@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SERVICES } from "@/lib/data";
 import { PageHero } from "@/components/ui/PageHero";
 import { EmergencyBanner } from "@/components/sections/EmergencyBanner";
@@ -8,7 +7,9 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 import { BookButton } from "@/components/ui/BookButton";
 import { HoverLink } from "@/components/ui/HoverLink";
 
-interface Props { params: { slug: string } }
+interface Props { 
+  params: { slug: string } 
+}
 
 export async function generateStaticParams() {
   return SERVICES.map(s => ({ slug: s.slug }));
@@ -28,13 +29,18 @@ export default function ServiceDetailPage({ params }: Props) {
 
   return (
     <>
-      <PageHero tag="Our Services" title={svc.title} subtitle={svc.shortDesc} />
+      <PageHero tag="Our Services" title={svc.title} subtitle={svc.shortDesc} backgroundImage={svc.image} />
 
       <section style={{ padding: "5rem 2rem", background: "#fff" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "4rem", alignItems: "start" }}>
 
+          {/* Main Content */}
           <AnimateIn>
-            <div style={{ fontSize: 56, marginBottom: 24 }}>{svc.icon}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 40, fontWeight: 700, marginBottom: "1.25rem", fontFamily: "var(--font-serif)" }}>
+              <img src={svc.icon} alt={`${svc.title} icon`} style={{ width: "40px", height: "auto" }} />
+              {svc.title}
+            </div>
+            
             <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", fontWeight: 800, color: "var(--text-dark)", margin: "0 0 1.25rem" }}>
               About This Service
             </h2>
@@ -56,8 +62,9 @@ export default function ServiceDetailPage({ params }: Props) {
             <BookButton dept={svc.title} />
           </AnimateIn>
 
-          <AnimateIn delay={150} direction="right">
-            <div style={{ position: "sticky", top: 90 }}>
+          {/* Sidebar - Controlled by CSS responsive visibility */}
+          <aside className="desktop-only-sidebar" style={{ position: "sticky", top: 90 }}>
+            <AnimateIn delay={150} direction="right">
               <div style={{ background: "var(--primary)", borderRadius: "var(--radius-lg)", padding: "1.75rem", marginBottom: "1.5rem" }}>
                 <h3 style={{ color: "#fff", fontFamily: "var(--font-serif)", fontSize: "1.1rem", fontWeight: 800, margin: "0 0 10px" }}>
                   Ready to Book?
@@ -83,8 +90,9 @@ export default function ServiceDetailPage({ params }: Props) {
                   </div>
                 ))}
               </div>
-            </div>
-          </AnimateIn>
+            </AnimateIn>
+          </aside>
+
         </div>
       </section>
 
@@ -103,7 +111,7 @@ export default function ServiceDetailPage({ params }: Props) {
                 hoverStyle={{ borderColor: "var(--primary)", boxShadow: "var(--shadow-card)" }}
                 style={{ display: "flex", alignItems: "center", gap: 12, padding: "1rem 1.25rem", background: "#fff", borderRadius: "var(--radius-md)", border: "1.5px solid #E2EBE7", transition: "all 0.2s" }}
               >
-                <span style={{ fontSize: 22 }}>{s.icon}</span>
+                <span style={{ fontSize: 22, display: "flex", alignItems: "center", width: 40 }}><img src={s.icon} alt={`${s.title} icon`} style={{ width: "100%", height: "auto" }} /></span>
                 <span style={{ fontSize: "0.88rem", fontWeight: 600, color: "var(--text-dark)" }}>{s.title}</span>
               </HoverLink>
             ))}
