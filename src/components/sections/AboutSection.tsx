@@ -10,7 +10,7 @@ export function AboutSection() {
             <div style={{ position: "relative", paddingBottom: 30, paddingRight: 30 }}>
               <div style={{ background: "var(--primary)", borderRadius: "var(--radius-lg)", padding: "3rem 2.5rem" }}>
                 <div style={{ fontSize: 48, marginBottom: 18 }}>
-                  <img src="./icons/faith.png" alt="Heart Icon" style={{ width: "18%", height: "auto" }} />
+                  <img src="/icons/faith.png" alt="Heart Icon" style={{ width: "18%", height: "auto" }} />
                 </div>
                 <h3 style={{ fontSize: "1.45rem", fontWeight: 800, fontFamily: "var(--font-serif)", margin: "0 0 12px", color: "#fff" }}>
                   Founded in Faith
@@ -50,7 +50,7 @@ export function AboutSection() {
               World-Class Facilities,<br />Rooted in Compassion
             </h2>
             <p style={{ color: "var(--text-light)", lineHeight: 1.8, marginBottom: "1.1rem" }}>
-              Located in Duayaw Nkwanta, St. Elizabeth Catholic Hospital serves as a regional centre of excellence for the Tano North District and surrounding communities — offering a wide range of clinical services under one roof, 24 hours a day.
+              Located in Hwidiem, St. Elizabeth Catholic Hospital serves as a regional centre of excellence for the Asutifi South District and surrounding communities — offering a wide range of clinical services under one roof, 24 hours a day.
             </p>
             <p style={{ color: "var(--text-light)", lineHeight: 1.8, marginBottom: "2rem" }}>
               Our multidisciplinary team of physicians, nurses, and allied health professionals bring skill, empathy, and faith to every patient encounter — from routine outpatient visits to complex surgical procedures.
